@@ -1,10 +1,10 @@
-public class bst
+public class avl
 {
     private node root;
 
-    public bst(int elem)
+    public avl(int elem)
     {
-        root = new node(elem);
+        root = new node(elem, 0);
     }
 
     public node get_root()
@@ -48,7 +48,7 @@ public class bst
         }
         else
         {
-            node a = new node(s);
+            node a = new node(s,0);
             if(x.get_data() < s)
             {
                 x.right = a;
@@ -57,6 +57,17 @@ public class bst
             {
                 x.left = a;
             }
+        }
+        x.height += 1;
+        while(x == root)
+        {
+            x = x.parent;
+            int max = x.left.height;
+            if (x.right.height > x.left.height)
+            {
+                max = x.right.height;
+            }
+            x.height = max + 1;
         }
     }
 

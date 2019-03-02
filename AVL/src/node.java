@@ -1,12 +1,14 @@
-class node
+public class node
 {
     private int elem;
+    int height;
     node parent = null;
     node left = null;
     node right = null;
 
-    node(int elem)
+    node(int elem, int height)
     {
+        this.height = height;
         this.elem = elem;
     }
 
